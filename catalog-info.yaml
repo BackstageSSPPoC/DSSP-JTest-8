@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: DSSP-JTest-8
+  annotations:
+    github.com/project-slug: BackstageSSPPoC/DSSP-JTest-8
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-id: DSSP-JTest-8
+    sonarqube.org/project-key: dssp-jtest-8
+    jenkins.io/job-full-name: Backstage_SSP_PoC/DSSP-JTest-8/main
+    argocd/app-name: dssp-jtest-8-dev
+    prometheus.io/rule: "kube_pod_container_resource_requests{pod=~'dssp-jtest-8.*'}|resource,kube_pod_container_status_restarts_total{pod=~'dssp-jtest-8.*'}|container"
+    prometheus.io/alert: "KubePodCrashLooping,KubeDeploymentReplicasMismatch,KubePodNotReady,KubeContainerWaiting,KubeContainerOOMKilled,KubeDeploymentRolloutStuck"
+    prometheus.io/labels: "namespace=dev"
+    grafana/overview-dashboard: '/d/ad84zrr/service-overview-template?var-pod_prefix=dssp-jtest-8&var-namespace=dev'
+  tags:
+    - java-maven
+    - scaffolded
+spec:
+  type: service
+  lifecycle: Dev
+  owner: user:default/chaitanya-shekhar-pandey
+  system: dssp-platform
